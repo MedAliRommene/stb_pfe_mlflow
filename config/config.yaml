@@ -2,6 +2,6 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  source_URL: https://github.com/MedAliRommene/data_source/blob/main/stb_data.zip
-  local_data_file: artifacts/data_ingestion/stb_data.zip
+  source_URL: C:/Users/Lenovo/Desktop/pfe_project/jupyter_model/stb_data.csv
+  local_data_file: artifacts/data_ingestion/data.csv
   unzip_dir: artifacts/data_ingestion

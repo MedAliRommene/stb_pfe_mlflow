@@ -3,9 +3,9 @@ import urllib.request as request
 import zipfile
 from stb_pfe_mlflow import logger
 from stb_pfe_mlflow.utils.common import get_size
+import shutil
 from pathlib import Path
 from stb_pfe_mlflow.entity.config_entity import DataIngestionConfig
-import shutil
 
 
 class DataIngestion:

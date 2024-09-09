@@ -1,1 +1,31 @@
-key: val
+COLUMNS:
+  tiers_key: int64
+  ca: float64
+  TOTMVTC: float64
+  TOTMVTD: float64
+  TOTMVTCnet: float64
+  TOTMVTDnet: float64
+  ENG: object
+  MontImp: float64
+  encours: object
+  Encours_Moyen_Debiteur: float64
+  Encours_Moyen_crediteur: float64
+  INCIDENTCHQ: float64
+  INCIDENTCHQ_R: float64
+  INCIDENTCHQ_N_R: float64
+  Interdit: object
+  InterditAct: object
+  NBIMP: float64
+  Interet_Non_ECHU: float64
+  Encaiss_Recu: float64
+  NBECHEANCE: float64
+  Code_Classe: float64
+  Var Signalitiques.Code_Profession: object
+  Var Signalitiques.Profession: object
+  Var Signalitiques.Code_Activite_Economique: object
+  Var Signalitiques.Activite_Economique: object
+  Var Signalitiques.Code_secteur_activite: object
+  Var Signalitiques.Secteur_Activite: object
+  Var Signalitiques.Ville: object
+  Var Signalitiques.Code_Postal: float64
+  Var Signalitiques.Date_Ouverture: object

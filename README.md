@@ -116,7 +116,7 @@ export MLFLOW_TRACKING_PASSWORD=6824692c47a369aa6f9eac5b10041d5c8edbcef0
     - Save the URI: 566373416292.dkr.ecr.ap-south-1.amazonaws.com/mlproj
 
 ## 4. Create EC2 machine (Ubuntu)
-
+  
 ## 5. Open EC2 and Install docker in EC2 Machine:
 
     #optinal

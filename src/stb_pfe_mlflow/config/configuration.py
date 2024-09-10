@@ -3,6 +3,7 @@ from stb_pfe_mlflow.utils.common import read_yaml, create_directories
 from stb_pfe_mlflow.entity.config_entity import (
     DataIngestionConfig,
     DataValidationConfig,
+    DataCleaningConfig,
 )
 
 
@@ -47,3 +48,15 @@ class ConfigurationManager:
         )
 
         return data_validation_config
+
+    def get_data_cleaning_config(self) -> DataCleaningConfig:
+        config = self.config.data_cleaning
+
+        create_directories([config.root_dir])
+
+        data_cleaning_config = DataCleaningConfig(
+            root_dir=config.root_dir,
+            data_path=config.data_path,
+        )
+
+        return data_cleaning_config

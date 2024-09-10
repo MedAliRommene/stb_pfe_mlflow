@@ -15,4 +15,6 @@ Flask-Cors
 py7zr
 pymongo 
 seaborn
+
+
 -e .

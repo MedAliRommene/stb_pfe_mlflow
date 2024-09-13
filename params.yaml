@@ -1,1 +1,6 @@
-key: val
+kneighborsclassifier:  
+  n_neighbors: 5
+  weights: 'uniform'
+  algorithm: 'auto' 
+  p: 2  
+  leaf_size: 30

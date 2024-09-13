@@ -29,3 +29,6 @@ COLUMNS:
   Var Signalitiques.Ville: object
   Var Signalitiques.Code_Postal: float64
   Var Signalitiques.Date_Ouverture: object
+
+TARGET_COLUMN:
+  name: pouvoir_credit

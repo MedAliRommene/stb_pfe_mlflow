@@ -9,6 +9,9 @@ from stb_pfe_mlflow.pipeline.stage_03_data_cleaning import DataCleaningTrainingP
 from stb_pfe_mlflow.pipeline.stage_04_data_transformation import (
     DataTransformationTrainingPipeline,
 )
+from stb_pfe_mlflow.pipeline.stage_05_data_training import DataTrainingTrainingPipeline
+from stb_pfe_mlflow.pipeline.stage_06_model_trainer import ModelTrainerTrainingPipeline
+
 
 STAGE_NAME = "Data Ingestion stage"
 try:
@@ -47,6 +50,28 @@ STAGE_NAME = "Data Transformation stage"
 try:
     logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
     data_ingestion = DataTransformationTrainingPipeline()
+    data_ingestion.main()
+    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+    logger.exception(e)
+    raise e
+
+
+STAGE_NAME = "Data Training stage"
+try:
+    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+    data_ingestion = DataTrainingTrainingPipeline()
+    data_ingestion.main()
+    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+    logger.exception(e)
+    raise e
+
+
+STAGE_NAME = "Model Trainer stage"
+try:
+    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+    data_ingestion = ModelTrainerTrainingPipeline()
     data_ingestion.main()
     logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
 except Exception as e:

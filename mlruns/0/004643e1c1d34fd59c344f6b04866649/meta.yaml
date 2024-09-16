@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Lenovo/Desktop/stb_pfe_mlflow/mlruns/0/004643e1c1d34fd59c344f6b04866649/artifacts
+end_time: 1726505759583
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 004643e1c1d34fd59c344f6b04866649
+run_name: loud-shrew-922
+run_uuid: 004643e1c1d34fd59c344f6b04866649
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1726505755178
+status: 3
+tags: []
+user_id: Lenovo

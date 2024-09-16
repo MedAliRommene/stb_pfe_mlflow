@@ -1,6 +1,6 @@
-kneighborsclassifier:  
-  n_neighbors: 5
-  weights: 'uniform'
-  algorithm: 'auto' 
-  p: 2  
-  leaf_size: 30
+kneighborsclassifier:
+  n_neighbors: 2
+  weights: "uniform"
+  algorithm: "auto"
+  p: 2
+  leaf_size: 45

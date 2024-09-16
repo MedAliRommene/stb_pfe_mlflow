@@ -21,7 +21,7 @@
 Clone the repository
 
 ```bash
-https://github.com/entbappy/End-to-end-Machine-Learning-Project-with-MLflow
+https://github.com/MedAliRommene/stb_pfe_mlflow
 ```
 
 ### STEP 01- Create a conda environment after opening the repository
@@ -63,20 +63,20 @@ open up you local host and port
 
 [dagshub](https://dagshub.com/)
 
-MLFLOW_TRACKING_URI=https://dagshub.com/entbappy/End-to-end-Machine-Learning-Project-with-MLflow.mlflow \
-MLFLOW_TRACKING_USERNAME=entbappy \
-MLFLOW_TRACKING_PASSWORD=6824692c47a369aa6f9eac5b10041d5c8edbcef0 \
+MLFLOW_TRACKING_URI=https://dagshub.com/MedAliRommene/stb_pfe_mlflow \
+MLFLOW_TRACKING_USERNAME=MedAliRommene \
+MLFLOW_TRACKING_PASSWORD=e3b036fa8a6fdf6fa586fddd3d436466285f1843\
 python script.py
 
 Run this to export as env variables:
 
 ```bash
 
-export MLFLOW_TRACKING_URI=https://dagshub.com/entbappy/End-to-end-Machine-Learning-Project-with-MLflow.mlflow
+export MLFLOW_TRACKING_URI=https://dagshub.com/MedAliRommene/stb_pfe_mlflow.mlflow
 
-export MLFLOW_TRACKING_USERNAME=entbappy
+export MLFLOW_TRACKING_USERNAME=MedAliRommene
 
-export MLFLOW_TRACKING_PASSWORD=6824692c47a369aa6f9eac5b10041d5c8edbcef0
+export MLFLOW_TRACKING_PASSWORD=e3b036fa8a6fdf6fa586fddd3d436466285f1843
 
 ```
 
@@ -116,7 +116,7 @@ export MLFLOW_TRACKING_PASSWORD=6824692c47a369aa6f9eac5b10041d5c8edbcef0
     - Save the URI: 566373416292.dkr.ecr.ap-south-1.amazonaws.com/mlproj
 
 ## 4. Create EC2 machine (Ubuntu)
-  
+
 ## 5. Open EC2 and Install docker in EC2 Machine:
 
     #optinal

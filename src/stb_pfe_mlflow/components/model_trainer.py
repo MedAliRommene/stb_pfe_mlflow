@@ -41,9 +41,4 @@ class ModelTrainer:
         # Save the model
         joblib.dump(knn, os.path.join(self.config.root_dir, self.config.model_name))
 
-        # Optionally: Save the label encoder for future use
-        joblib.dump(
-            label_encoder, os.path.join(self.config.root_dir, self.config.model_name)
-        )
-
         print("Model training complete and saved.")

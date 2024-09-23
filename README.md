@@ -63,9 +63,9 @@ open up you local host and port
 
 [dagshub](https://dagshub.com/)
 
-MLFLOW_TRACKING_URI=https://dagshub.com/MedAliRommene/stb_pfe_mlflow \
+MLFLOW_TRACKING_URI=https://dagshub.com/MedAliRommene/stb_pfe_mlflow.mlflow \
 MLFLOW_TRACKING_USERNAME=MedAliRommene \
-MLFLOW_TRACKING_PASSWORD=e3b036fa8a6fdf6fa586fddd3d436466285f1843\
+MLFLOW_TRACKING_PASSWORD=5e389dbd0f1b00486b1dcbc772a112212c63eff6\
 python script.py
 
 Run this to export as env variables:
@@ -76,7 +76,7 @@ export MLFLOW_TRACKING_URI=https://dagshub.com/MedAliRommene/stb_pfe_mlflow.mlfl
 
 export MLFLOW_TRACKING_USERNAME=MedAliRommene
 
-export MLFLOW_TRACKING_PASSWORD=e3b036fa8a6fdf6fa586fddd3d436466285f1843
+export MLFLOW_TRACKING_PASSWORD=5e389dbd0f1b00486b1dcbc772a112212c63eff6
 
 ```
 

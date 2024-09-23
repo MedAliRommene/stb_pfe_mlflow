@@ -3,4 +3,4 @@ kneighborsclassifier:
   weights: "uniform"
   algorithm: "auto"
   p: 2
-  leaf_size: 45
+  leaf_size: 30

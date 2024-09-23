@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Lenovo/Desktop/stb_pfe_mlflow/mlruns/0/a2d0b62a638d440d930a417683ab59d3/artifacts
+end_time: 1727040326285
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a2d0b62a638d440d930a417683ab59d3
+run_name: bald-kit-104
+run_uuid: a2d0b62a638d440d930a417683ab59d3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727040318656
+status: 3
+tags: []
+user_id: Lenovo

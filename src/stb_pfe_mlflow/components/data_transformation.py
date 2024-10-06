@@ -15,7 +15,19 @@ class DataTransformation:
     def transforming_data(self):
         df = pd.read_csv(self.config.data_path)
         df.drop(columns=["Date_Ouverture"], inplace=True)
-        # Encodage des variables catégorielles
+        # 2. Séparation des colonnes numériques et catégorielles
+        numeric_cols = df.select_dtypes(include=["float64", "int64"]).columns
+        categorical_cols = df.select_dtypes(include=["object"]).columns
+
+        # Remplir les valeurs manquantes pour les colonnes numériques et catégorielles
+        df[numeric_cols] = df[numeric_cols].fillna(
+            df[numeric_cols].median()
+        )  # Pour les colonnes numériques
+        df[categorical_cols] = df[categorical_cols].fillna(
+            df[categorical_cols].mode().iloc[0]
+        )  # Pour les colonnes catégorielles
+
+        # 3. Encodage des variables catégorielles
         categorical_cols = [
             "ENG",
             "Code_Profession",
@@ -26,36 +38,31 @@ class DataTransformation:
             "Secteur_Activite",
             "Ville",
         ]
-        label_encoders = {col: LabelEncoder().fit(df[col]) for col in categorical_cols}
 
-        encoded_data = df.copy()
+        # Utilisation de OneHotEncoder pour les variables non-ordinales
+        encoded_data = pd.get_dummies(df, columns=categorical_cols)
 
-        for col, le in label_encoders.items():
-            encoded_data[col] = le.transform(df[col])
-
-        # Normalisation des variables numériques
-        numeric_cols = encoded_data.select_dtypes(include=["float64", "int64"]).columns
+        # 4. Normalisation des variables numériques
         scaler = StandardScaler()
         encoded_data[numeric_cols] = scaler.fit_transform(encoded_data[numeric_cols])
 
-        # Clustering avec K-Means
-        kmeans = KMeans(n_clusters=2, random_state=42)
+        # 5. Détermination du nombre optimal de clusters avec la méthode Elbow
+        inertia = []
+        k_values = range(1, 10)
+
+        for k in k_values:
+            kmeans = KMeans(n_clusters=k, random_state=42)
+            kmeans.fit(encoded_data)
+            inertia.append(kmeans.inertia_)
+
+        # 6. Clustering avec K-Means (choix de k optimal)
+        k_optimal = 3  # Ajuster selon le résultat de l'Elbow ou Silhouette Score
+        kmeans = KMeans(n_clusters=k_optimal, random_state=42)
         clusters = kmeans.fit_predict(encoded_data)
-
-        # Ajouter les clusters aux données
-        encoded_data["Cluster"] = clusters
-
-        # Création de la colonne 'pouvoir_credit' basée sur les clusters
-        encoded_data["pouvoir_credit"] = encoded_data["Cluster"].apply(
-            lambda x: "sain" if x == 0 else "risqué"
-        )
-        # drop cplpnne cluster :
-        encoded_data.drop(columns=["Cluster"], inplace=True)
-        # Enregistrement du dataset avec les labels supervisés
-        encoded_data.to_csv("data_supervised.csv", index=False)
+        df["Cluster"] = kmeans.labels_
 
         # Enregistrer le dataset final dans le répertoire configuré
-        encoded_data.to_csv(
+        df.to_csv(
             os.path.join(self.config.root_dir, "transforming_data.csv"), index=False
         )
 

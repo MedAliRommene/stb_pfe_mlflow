@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loan Risk Prediction Result</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      body {
+        background-color: #f4f4f9;
+      }
+      .navbar {
+        background-color: #007bff;
+      }
+      .navbar-brand {
+        color: white;
+      }
+      .result-section {
+        margin-top: 50px;
+      }
+      .result-card {
+        padding: 30px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      footer {
+        margin-top: 50px;
+        padding: 20px;
+        text-align: center;
+        background-color: #007bff;
+        color: white;
+      }
+      .result-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .result-success {
+        color: green;
+      }
+      .result-failure {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="#">Loan Risk Predictor</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Result Section -->
+    <div class="container result-section">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="result-card text-center">
+            <h3 class="result-title">Loan Risk Prediction Result</h3>
+
+            <!-- Dynamic Prediction Result -->
+            {% if prediction == 1 %}
+            <p class="result-success">
+              <strong>Client éligible au crédit</strong><br />
+              Client avec un profil de crédit favorable {% elif prediction == 0
+              %}
+            </p>
+
+            <p class="result-failure">
+              <strong>Client non éligible au crédit</strong><br />
+              Client non conforme aux critères d'éligibilité.
+            </p>
+            {% elif prediction == 2 %}
+            <p class="result-failure">
+              <strong>Client éligible au crédit avec restrictions </strong
+              ><br />
+              Client à évaluation conditionnelle de crédit
+            </p>
+            {% endif %}
+
+            <a href="/" class="btn btn-primary mt-4">Go Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Loan Risk Predictor. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>

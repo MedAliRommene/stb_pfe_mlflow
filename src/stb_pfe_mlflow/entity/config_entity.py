@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from pathlib import Path
+from typing import List
 
 
 @dataclass(frozen=True)
@@ -41,11 +42,13 @@ class ModelTrainerConfig:
     train_data_path: Path
     test_data_path: Path
     model_name: str
-    n_neighbors: int
-    weights: str
-    algorithm: str
-    p: int
-    leaf_size: int
+    n_estimators: int
+    learning_rate: int
+    max_depth: str
+    min_samples_split: int
+    min_samples_leaf: int
+    subsample: int
+    random_state: int
     target_column: str
 
 

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Lenovo/Desktop/stb_pfe_mlflow/mlruns/0/e6ea53edabfa45a182238be28e3a2c1c/artifacts
+end_time: 1727110996637
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e6ea53edabfa45a182238be28e3a2c1c
+run_name: merciful-ant-92
+run_uuid: e6ea53edabfa45a182238be28e3a2c1c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727110992163
+status: 3
+tags: []
+user_id: Lenovo

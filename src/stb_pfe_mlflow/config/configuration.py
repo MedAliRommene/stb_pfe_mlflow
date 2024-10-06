@@ -91,7 +91,7 @@ class ConfigurationManager:
 
     def get_model_trainer_config(self) -> ModelTrainerConfig:
         config = self.config.model_trainer
-        params = self.params.kneighborsclassifier
+        params = self.params.GradientBoostingClassifier
         schema = self.schema.TARGET_COLUMN
 
         create_directories([config.root_dir])
@@ -101,11 +101,13 @@ class ConfigurationManager:
             train_data_path=config.train_data_path,
             test_data_path=config.test_data_path,
             model_name=config.model_name,
-            n_neighbors=params.n_neighbors,
-            weights=params.weights,
-            algorithm=params.algorithm,
-            p=params.p,
-            leaf_size=params.leaf_size,
+            n_estimators=params.n_estimators,
+            learning_rate=params.learning_rate,
+            max_depth=params.max_depth,
+            min_samples_split=params.min_samples_split,
+            min_samples_leaf=params.min_samples_leaf,
+            subsample=params.subsample,
+            random_state=params.random_state,
             target_column=schema.name,
         )
 
@@ -113,7 +115,7 @@ class ConfigurationManager:
 
     def get_model_evaluation_config(self) -> ModelEvaluationConfig:
         config = self.config.model_evaluation
-        params = self.params.kneighborsclassifier
+        params = self.params.GradientBoostingClassifier
         schema = self.schema.TARGET_COLUMN
 
         create_directories([config.root_dir])
@@ -127,4 +129,5 @@ class ConfigurationManager:
             target_column=schema.name,
             mlflow_uri="https://dagshub.com/MedAliRommene/stb_pfe_mlflow.mlflow",
         )
+
         return model_evaluation_config

@@ -31,4 +31,4 @@ COLUMNS:
   Var Signalitiques.Date_Ouverture: object
 
 TARGET_COLUMN:
-  name: pouvoir_credit
+  name: Cluster

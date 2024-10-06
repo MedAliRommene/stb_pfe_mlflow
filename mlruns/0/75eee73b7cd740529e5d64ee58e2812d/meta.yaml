@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Lenovo/Desktop/stb_pfe_mlflow/mlruns/0/75eee73b7cd740529e5d64ee58e2812d/artifacts
+end_time: 1727170205941
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 75eee73b7cd740529e5d64ee58e2812d
+run_name: agreeable-kite-340
+run_uuid: 75eee73b7cd740529e5d64ee58e2812d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727170205889
+status: 4
+tags: []
+user_id: Lenovo

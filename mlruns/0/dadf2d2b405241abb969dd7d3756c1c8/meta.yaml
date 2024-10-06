@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Lenovo/Desktop/stb_pfe_mlflow/mlruns/0/dadf2d2b405241abb969dd7d3756c1c8/artifacts
+end_time: 1727170309712
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: dadf2d2b405241abb969dd7d3756c1c8
+run_name: big-gnat-640
+run_uuid: dadf2d2b405241abb969dd7d3756c1c8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727170309672
+status: 4
+tags: []
+user_id: Lenovo

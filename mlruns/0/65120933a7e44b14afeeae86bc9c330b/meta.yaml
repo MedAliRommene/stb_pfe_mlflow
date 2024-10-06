@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Lenovo/Desktop/stb_pfe_mlflow/mlruns/0/65120933a7e44b14afeeae86bc9c330b/artifacts
+end_time: 1727095300781
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 65120933a7e44b14afeeae86bc9c330b
+run_name: adaptable-jay-341
+run_uuid: 65120933a7e44b14afeeae86bc9c330b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727095294297
+status: 3
+tags: []
+user_id: Lenovo

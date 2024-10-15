@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Lenovo/Desktop/stb_pfe_mlflow/mlruns/0/0c331b0d6068469abc25d172c1a9277c/artifacts
+end_time: 1728926385538
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0c331b0d6068469abc25d172c1a9277c
+run_name: crawling-bird-230
+run_uuid: 0c331b0d6068469abc25d172c1a9277c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1728926379064
+status: 3
+tags: []
+user_id: Lenovo

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loan Risk Prediction</title>
+    <title>STB Bank - Client Eligibility Prediction</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -13,313 +13,400 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
       body {
-        background-color: #f4f4f9;
+        background-image: url("static/images/credit.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: "Poppins", sans-serif;
+        color: #333;
       }
+
+      .overlay {
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.8
+        ); /* Semi-transparent overlay */
+        height: 100vh;
+        width: 100%;
+      }
+
+      /* Navigation Bar */
       .navbar {
-        background-color: #007bff;
+        background-color: #004080; /* STB Bank Blue */
+        padding: 15px;
       }
       .navbar-brand {
-        color: white;
+        font-size: 1.75rem;
+        font-weight: bold;
+        color: #fff !important;
       }
+      .navbar-nav .nav-link {
+        color: #fff !important;
+        font-size: 1.1rem;
+        transition: color 0.3s ease;
+      }
+      .navbar-nav .nav-link:hover {
+        color: #ffdd57 !important;
+      }
+
+      /* Form Section */
       .form-section {
-        margin-top: 50px;
+        margin-top: 80px;
+        margin-bottom: 50px;
       }
       .form-card {
-        padding: 30px;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0px 8px 20px rgba(0, 64, 128, 0.1);
       }
-      footer {
-        margin-top: 50px;
-        padding: 20px;
+      .form-card h3 {
+        font-size: 1.8rem;
+        color: #004080;
+        margin-bottom: 20px;
         text-align: center;
-        background-color: #007bff;
-        color: white;
+      }
+      .form-label {
+        font-weight: bold;
+        color: #004080;
+      }
+      .form-control {
+        border-radius: 6px;
+        border: 1px solid #ced4da;
+        padding: 10px;
+      }
+      .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+      }
+
+      /* Submit Button */
+      .btn-primary {
+        background-color: #004080;
+        border: none;
+        padding: 12px 30px;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        border-radius: 50px;
+      }
+      .btn-primary:hover {
+        background-color: #003366;
+        transform: scale(1.05);
+      }
+
+      /* Footer */
+      footer {
+        padding: 25px;
+        background-color: #004080;
+        color: #fff;
+        text-align: center;
+        font-size: 0.9rem;
       }
     </style>
   </head>
   <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand" href="#">Loan Risk Predictor</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <div class="overlay">
+      <!-- Navigation Bar -->
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">STB Bank</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-    <!-- Main Form Section -->
-    <div class="container form-section">
-      <div class="row justify-content-center">
-        <div class="col-md-10">
-          <div class="form-card">
-            <h3 class="text-center">Loan Risk Prediction</h3>
-            <form method="POST" action="/predict">
-              <!-- Input Fields -->
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="ca">CA:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="ca"
-                    name="ca"
-                    required
-                  />
+      <!-- Main Form Section -->
+      <div class="container form-section">
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <div class="form-card">
+              <h3>Prediction de l'Éligibilité du Client</h3>
+              <form method="POST" action="/predict">
+                <!-- Input Fields -->
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="ca" class="form-label">CA:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="ca"
+                      name="ca"
+                      required
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="TOTMVTC" class="form-label">TOTMVTC:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="TOTMVTC"
+                      name="TOTMVTC"
+                      required
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="TOTMVTC">TOTMVTC:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="TOTMVTC"
-                    name="TOTMVTC"
-                    required
-                  />
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="TOTMVTD" class="form-label">TOTMVTD:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="TOTMVTD"
+                      name="TOTMVTD"
+                      required
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="TOTMVTCnet" class="form-label"
+                      >TOTMVTCnet:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="TOTMVTCnet"
+                      name="TOTMVTCnet"
+                      required
+                    />
+                  </div>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="TOTMVTD">TOTMVTD:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="TOTMVTD"
-                    name="TOTMVTD"
-                    required
-                  />
-                </div>
-              </div>
 
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="TOTMVTCnet">TOTMVTCnet:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="TOTMVTCnet"
-                    name="TOTMVTCnet"
-                    required
-                  />
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="TOTMVTDnet" class="form-label"
+                      >TOTMVTDnet:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="TOTMVTDnet"
+                      name="TOTMVTDnet"
+                      required
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="ENG" class="form-label">ENG:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="ENG"
+                      name="ENG"
+                      required
+                    />
+                  </div>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="TOTMVTDnet">TOTMVTDnet:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="TOTMVTDnet"
-                    name="TOTMVTDnet"
-                    required
-                  />
-                </div>
-              </div>
 
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="ENG">ENG:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="ENG"
-                    name="ENG"
-                    required
-                  />
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="MontImp" class="form-label">Mont Imp:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="MontImp"
+                      name="MontImp"
+                      required
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="encours" class="form-label">Encours:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="encours"
+                      name="encours"
+                      required
+                    />
+                  </div>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="MontImp">Mont Imp:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="MontImp"
-                    name="MontImp"
-                    required
-                  />
-                </div>
-              </div>
 
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="encours">Encours:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="encours"
-                    name="encours"
-                    required
-                  />
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="Encours_Moyen_Debiteur" class="form-label"
+                      >Encours Moyen Debiteur:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="Encours_Moyen_Debiteur"
+                      name="Encours_Moyen_Debiteur"
+                      required
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="Encours_Moyen_crediteur" class="form-label"
+                      >Encours Moyen Crediteur:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="Encours_Moyen_crediteur"
+                      name="Encours_Moyen_crediteur"
+                      required
+                    />
+                  </div>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="Encours_Moyen_Debiteur"
-                    >Encours Moyen Debiteur:</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="Encours_Moyen_Debiteur"
-                    name="Encours_Moyen_Debiteur"
-                    required
-                  />
-                </div>
-              </div>
 
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="Encours_Moyen_crediteur"
-                    >Encours Moyen Crediteur:</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="Encours_Moyen_crediteur"
-                    name="Encours_Moyen_crediteur"
-                    required
-                  />
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="NBECHEANCE" class="form-label"
+                      >NBECHEANCE:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="NBECHEANCE"
+                      name="NBECHEANCE"
+                      required
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="Code_Classe" class="form-label"
+                      >Code Classe:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="Code_Classe"
+                      name="Code_Classe"
+                      required
+                    />
+                  </div>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="NBECHEANCE">NBECHEANCE:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="NBECHEANCE"
-                    name="NBECHEANCE"
-                    required
-                  />
-                </div>
-              </div>
 
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="Code_Classe">Code Classe:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="Code_Classe"
-                    name="Code_Classe"
-                    required
-                  />
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="Code_Profession" class="form-label"
+                      >Code Profession:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="Code_Profession"
+                      name="Code_Profession"
+                      required
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="Profession" class="form-label"
+                      >Profession:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="Profession"
+                      name="Profession"
+                      required
+                    />
+                  </div>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="Code_Profession">Code Profession:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="Code_Profession"
-                    name="Code_Profession"
-                    required
-                  />
-                </div>
-              </div>
 
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="Profession">Profession:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="Profession"
-                    name="Profession"
-                    required
-                  />
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="Code_Activite_Economique" class="form-label"
+                      >Code Activite Economique:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="Code_Activite_Economique"
+                      name="Code_Activite_Economique"
+                      required
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="Activite_Economique" class="form-label"
+                      >Activite Economique:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="Activite_Economique"
+                      name="Activite_Economique"
+                      required
+                    />
+                  </div>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="Code_Activite_Economique"
-                    >Code Activite Economique:</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="Code_Activite_Economique"
-                    name="Code_Activite_Economique"
-                    required
-                  />
-                </div>
-              </div>
 
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="Activite_Economique">Activite Economique:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="Activite_Economique"
-                    name="Activite_Economique"
-                    required
-                  />
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="Code_secteur_activite" class="form-label"
+                      >Code Secteur Activite:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="Code_secteur_activite"
+                      name="Code_secteur_activite"
+                      required
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="Secteur_Activite" class="form-label"
+                      >Secteur Activite:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="Secteur_Activite"
+                      name="Secteur_Activite"
+                      required
+                    />
+                  </div>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="Code_secteur_activite"
-                    >Code Secteur Activite:</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="Code_secteur_activite"
-                    name="Code_secteur_activite"
-                    required
-                  />
-                </div>
-              </div>
 
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="Secteur_Activite">Secteur Activite:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="Secteur_Activite"
-                    name="Secteur_Activite"
-                    required
-                  />
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="Ville" class="form-label">Ville:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="Ville"
+                      name="Ville"
+                      required
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="ancienneté" class="form-label"
+                      >Ancienneté:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="ancienneté"
+                      name="ancienneté"
+                      required
+                    />
+                  </div>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="Ville">Ville:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="Ville"
-                    name="Ville"
-                    required
-                  />
-                </div>
-              </div>
 
-              <div class="form-group">
-                <label for="ancienneté">Ancienneté:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="ancienneté"
-                  name="ancienneté"
-                  required
-                />
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-block">
-                Submit
-              </button>
-            </form>
+                <button type="submit" class="btn btn-primary btn-block mt-4">
+                  Submit
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -327,7 +414,7 @@
 
     <!-- Footer -->
     <footer>
-      <p>© 2024 Loan Risk Predictor. All Rights</p>
+      <p>© 2024 STB Bank. All Rights Reserved.</p>
     </footer>
   </body>
 </html>

@@ -22,6 +22,11 @@ def homePage():
     return render_template("index.html")
 
 
+@app.route("/home", methods=["GET"])  # Route to display the home page
+def home():
+    return render_template("home.html")
+
+
 @app.route("/train", methods=["GET"])  # Route to train the pipeline
 def training():
     os.system("python main.py")

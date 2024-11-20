@@ -19,12 +19,12 @@ app = Flask(__name__)  # Initializing a Flask app
 
 @app.route("/", methods=["GET"])  # Route to display the home page
 def homePage():
-    return render_template("index.html")
-
-
-@app.route("/home", methods=["GET"])  # Route to display the home page
-def home():
     return render_template("home.html")
+
+
+@app.route("/index", methods=["GET"])  # Route to display the home page
+def home():
+    return render_template("index.html")
 
 
 @app.route("/train", methods=["GET"])  # Route to train the pipeline

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Lenovo/Desktop/stb_pfe_mlflow/mlruns/0/128954d909aa4aa7b0db066cd33cf059/artifacts
+end_time: 1732733637054
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 128954d909aa4aa7b0db066cd33cf059
+run_name: nebulous-flea-636
+run_uuid: 128954d909aa4aa7b0db066cd33cf059
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732733629060
+status: 3
+tags: []
+user_id: Lenovo

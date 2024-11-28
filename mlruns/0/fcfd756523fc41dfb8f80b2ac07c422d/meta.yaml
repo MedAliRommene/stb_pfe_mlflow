@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Lenovo/Desktop/stb_pfe_mlflow/mlruns/0/fcfd756523fc41dfb8f80b2ac07c422d/artifacts
+end_time: 1732139093989
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: fcfd756523fc41dfb8f80b2ac07c422d
+run_name: resilient-wren-208
+run_uuid: fcfd756523fc41dfb8f80b2ac07c422d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732139088142
+status: 3
+tags: []
+user_id: Lenovo

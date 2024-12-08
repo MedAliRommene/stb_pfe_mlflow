@@ -127,7 +127,7 @@ def index():
 
             # Pass transformed data to the prediction pipeline
             obj = PredictionPipeline()
-            predict = obj.predict(input_df)
+            predict = obj.predict(input_df.to_numpy())
             prediction = int(predict[0])
 
             return render_template("results.html", prediction=prediction)

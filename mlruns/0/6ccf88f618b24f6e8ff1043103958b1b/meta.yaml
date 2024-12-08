@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Lenovo/Desktop/stb_pfe_mlflow/mlruns/0/6ccf88f618b24f6e8ff1043103958b1b/artifacts
+end_time: 1732907502326
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 6ccf88f618b24f6e8ff1043103958b1b
+run_name: bittersweet-squid-74
+run_uuid: 6ccf88f618b24f6e8ff1043103958b1b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732907496831
+status: 3
+tags: []
+user_id: Lenovo

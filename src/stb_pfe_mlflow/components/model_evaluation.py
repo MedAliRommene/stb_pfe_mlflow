@@ -9,6 +9,7 @@ from urllib.parse import urlparse
 from pathlib import Path
 from stb_pfe_mlflow.utils.common import save_json
 from stb_pfe_mlflow.entity.config_entity import ModelEvaluationConfig
+from sklearn.metrics import accuracy_score
 
 
 class ModelEvaluation:
@@ -19,7 +20,8 @@ class ModelEvaluation:
         rmse = np.sqrt(mean_squared_error(actual, pred))
         mae = mean_absolute_error(actual, pred)
         r2 = r2_score(actual, pred)
-        return rmse, mae, r2
+        accuracy = accuracy_score(actual, pred)  # Compute accuracy
+        return rmse, mae, r2, accuracy
 
     def log_into_mlflow(self):
         # Load test data
@@ -30,9 +32,9 @@ class ModelEvaluation:
         test_y = test_data[self.config.target_column]
         test_x = test_data.drop(
             columns=["tiers_key", "Cluster"]
-        )  # drop 'tiers_key' and target column 'Cluster'
+        )  # Drop 'tiers_key' and target column 'Cluster'
 
-        # new encoders and scalers saved during training
+        # New encoders and scalers saved during training
         label_encoder = LabelEncoder()
         scaler = StandardScaler()
 
@@ -43,6 +45,7 @@ class ModelEvaluation:
                 test_x[col].astype(str)
             )  # Fitting the encoder on the current test column
             test_x[col] = label_encoder.transform(test_x[col].astype(str))
+
         # Encode the target labels (ensure it matches the training labels)
         test_y_encoded = label_encoder.fit_transform(test_y)
 
@@ -60,10 +63,12 @@ class ModelEvaluation:
             predicted_qualities = model.predict(test_x_scaled)
 
             # Evaluate metrics
-            (rmse, mae, r2) = self.eval_metrics(test_y_encoded, predicted_qualities)
+            rmse, mae, r2, accuracy = self.eval_metrics(
+                test_y_encoded, predicted_qualities
+            )
 
             # Saving metrics locally
-            scores = {"rmse": rmse, "mae": mae, "r2": r2}
+            scores = {"rmse": rmse, "mae": mae, "r2": r2, "accuracy": accuracy}
             save_json(path=Path(self.config.metric_file_name), data=scores)
 
             # Log parameters and metrics in MLflow
@@ -71,6 +76,7 @@ class ModelEvaluation:
             mlflow.log_metric("rmse", rmse)
             mlflow.log_metric("r2", r2)
             mlflow.log_metric("mae", mae)
+            mlflow.log_metric("accuracy", accuracy)  # Log accuracy
 
             # Model registry does not work with file store
             if tracking_url_type_store != "file":

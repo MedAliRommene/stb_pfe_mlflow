@@ -24,8 +24,7 @@ class DataCleaning:
                 x.replace("Var Signalitiques.", "")
                 if x.startswith("Var Signalitiques.")
                 else x
-            ),
-            inplace=True,
+            )
         )
 
         # Suppression des colonnes spécifiées
@@ -40,14 +39,14 @@ class DataCleaning:
             "Encaiss_Recu",
             "Code_Postal",
         ]
-        df.drop(columns=columns_to_drop, inplace=True)
+        df.drop(columns=columns_to_drop)
 
         # Remplir les valeurs manquantes dans les colonnes numériques avec la médiane ou la moyenne
-        df["ca"].fillna(df["ca"].median(), inplace=True)
-        df["TOTMVTC"].fillna(df["TOTMVTC"].mean(), inplace=True)
-        df["TOTMVTD"].fillna(df["TOTMVTD"].mean(), inplace=True)
-        df["TOTMVTCnet"].fillna(df["TOTMVTCnet"].mean(), inplace=True)
-        df["TOTMVTDnet"].fillna(df["TOTMVTDnet"].mean(), inplace=True)
+        df["ca"].fillna(df["ca"].median())
+        df["TOTMVTC"].fillna(df["TOTMVTC"].mean())
+        df["TOTMVTD"].fillna(df["TOTMVTD"].mean())
+        df["TOTMVTCnet"].fillna(df["TOTMVTCnet"].mean())
+        df["TOTMVTDnet"].fillna(df["TOTMVTDnet"].mean())
 
         # Assurer que TOTMVTC et TOTMVTCnet soient toujours positifs
         df["TOTMVTC"] = df[
@@ -73,11 +72,11 @@ class DataCleaning:
 
         # Remplir les valeurs manquantes dans 'ENG' par 0 (ou "Non")
         df["ENG"].fillna(
-            0, inplace=True
+            0
         )  # Ici, on suppose que "0" représente une catégorie manquante
 
         # Remplir les valeurs manquantes dans 'MontImp' par 0
-        df["MontImp"].fillna(0, inplace=True)
+        df["MontImp"].fillna(0)
 
         # Conversion de la colonne 'encours' en numérique (et gestion des erreurs de conversion)
         df["encours"] = pd.to_numeric(df["encours"], errors="coerce")
@@ -86,21 +85,17 @@ class DataCleaning:
         print(df["encours"].isna().sum())
 
         # Remplir les valeurs manquantes dans 'encours' avec la médiane
-        df["encours"].fillna(df["encours"].median(), inplace=True)
+        df["encours"].fillna(df["encours"].median())
 
         # Remplir les valeurs manquantes dans d'autres colonnes numériques avec la médiane
-        df["Encours_Moyen_Debiteur"].fillna(
-            df["Encours_Moyen_Debiteur"].median(), inplace=True
-        )
-        df["Encours_Moyen_crediteur"].fillna(
-            df["Encours_Moyen_crediteur"].median(), inplace=True
-        )
+        df["Encours_Moyen_Debiteur"].fillna(df["Encours_Moyen_Debiteur"].median())
+        df["Encours_Moyen_crediteur"].fillna(df["Encours_Moyen_crediteur"].median())
 
         # Remplir les valeurs manquantes dans 'NBECHEANCE' avec la moyenne
-        df["NBECHEANCE"].fillna(df["NBECHEANCE"].mean(), inplace=True)
+        df["NBECHEANCE"].fillna(df["NBECHEANCE"].mean())
 
         # Remplir les valeurs manquantes dans 'Code_Classe' avec la valeur la plus fréquente (mode)
-        df["Code_Classe"].fillna(df["Code_Classe"].mode()[0], inplace=True)
+        df["Code_Classe"].fillna(df["Code_Classe"].mode()[0])
 
         # Remplir les valeurs manquantes dans certaines colonnes catégorielles avec la valeur la plus fréquente
         categorical_columns = [
@@ -115,7 +110,7 @@ class DataCleaning:
 
         for col in categorical_columns:
             if col in df.columns:  # Vérifie si la colonne existe dans le DataFrame
-                df[col].fillna(df[col].mode()[0], inplace=True)
+                df[col].fillna(df[col].mode()[0])
             else:
                 print(f"Colonne '{col}' non trouvée dans le DataFrame.")
 
@@ -124,7 +119,7 @@ class DataCleaning:
 
         # Imputation des valeurs manquantes dans 'Date_Ouverture' avec la date médiane
         median_date = df["Date_Ouverture"].median()
-        df["Date_Ouverture"].fillna(median_date, inplace=True)
+        df["Date_Ouverture"].fillna(median_date)
 
         # Fonction pour calculer le nombre d'années écoulées depuis la date d'ouverture
         def calculate_years_since(date):

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Lenovo/Desktop/stb_pfe_mlflow/mlruns/0/541edd7f34414195ac31da755f5e0f3a/artifacts
+end_time: 1733770275383
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 541edd7f34414195ac31da755f5e0f3a
+run_name: bouncy-bird-179
+run_uuid: 541edd7f34414195ac31da755f5e0f3a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733770266892
+status: 3
+tags: []
+user_id: Lenovo

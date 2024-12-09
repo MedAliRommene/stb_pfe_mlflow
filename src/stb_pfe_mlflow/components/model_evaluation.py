@@ -10,6 +10,9 @@ from pathlib import Path
 from stb_pfe_mlflow.utils.common import save_json
 from stb_pfe_mlflow.entity.config_entity import ModelEvaluationConfig
 from sklearn.metrics import accuracy_score
+import warnings
+
+warnings.filterwarnings("ignore", message="Setuptools is replacing distutils")
 
 
 class ModelEvaluation:

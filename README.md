@@ -65,7 +65,7 @@ open up you local host and port
 
 MLFLOW_TRACKING_URI=https://dagshub.com/MedAliRommene/stb_pfe_mlflow.mlflow \
 MLFLOW_TRACKING_USERNAME=MedAliRommene \
-MLFLOW_TRACKING_PASSWORD=5e389dbd0f1b00486b1dcbc772a112212c63eff6\
+MLFLOW_TRACKING_PASSWORD=\
 python script.py
 
 Run this to export as env variables:
@@ -76,7 +76,7 @@ export MLFLOW_TRACKING_URI=https://dagshub.com/MedAliRommene/stb_pfe_mlflow.mlfl
 
 export MLFLOW_TRACKING_USERNAME=MedAliRommene
 
-export MLFLOW_TRACKING_PASSWORD=5e389dbd0f1b00486b1dcbc772a112212c63eff6
+export MLFLOW_TRACKING_PASSWORD=
 
 ```
 
@@ -113,7 +113,7 @@ export MLFLOW_TRACKING_PASSWORD=5e389dbd0f1b00486b1dcbc772a112212c63eff6
 
 ## 3. Create ECR repo to store/save docker image
 
-    - Save the URI: 686255940267.dkr.ecr.us-east-1.amazonaws.com/stbproj
+    - Save the URI: 
 
 ## 4. Create EC2 machine (Ubuntu)
 
@@ -141,16 +141,16 @@ export MLFLOW_TRACKING_PASSWORD=5e389dbd0f1b00486b1dcbc772a112212c63eff6
 
 # 7. Setup github secrets:
 
-    AWS_ACCESS_KEY_ID=AKIAZ7SAKUKV4DYWJS6T
+    AWS_ACCESS_KEY_ID=
 
-    AWS_SECRET_ACCESS_KEY=JnoDZ6UR+Xvlzvm1lorl4qcxF2PI1RXTqm0YzkMr
+    AWS_SECRET_ACCESS_KEY=
 
     AWS_REGION = us-east-1
 
-    AWS_ECR_LOGIN_URI = demo>>  686255940267.dkr.ecr.us-east-1.amazonaws.com
+    AWS_ECR_LOGIN_URI = 
     
 
-    ECR_REPOSITORY_NAME = stbproj
+    ECR_REPOSITORY_NAME = 
 
 ## About MLflow
 
